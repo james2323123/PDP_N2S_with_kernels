@@ -234,9 +234,9 @@ class MultiHeadPosCompat(nn.Module):
 
         # Calculate compatibility (n_heads, batch_size, n_query, graph_size)
         if self.kernel_enabled:
-            compatibility = self.norm_factor * self.kernel_func(Q,K)
+            return self.kernel_func(Q,K)
         else:
-            compatibility = self.norm_factor * torch.matmul(Q, K.transpose(2, 3))
+            return torch.matmul(Q, K.transpose(2, 3))
 
 class MultiHeadCompat(nn.Module):
     def __init__(
