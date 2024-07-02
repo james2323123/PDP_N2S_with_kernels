@@ -167,9 +167,9 @@ class MultiHeadAttentionNew(nn.Module):
 
         # Calculate compatibility (n_heads, batch_size, n_query, graph_size)
         if self.kernel_enabled:
-            compatibility = self.kernel_func(Q,K)
+            compatibility = torch.cat((self.kernel_func(Q, K), out_source_attn), 0)
         else:
-            compatibility = torch.matmul(Q, K.transpose(2, 3))
+            compatibility = torch.cat((torch.matmul(Q, K.transpose(2, 3)), out_source_attn), 0)
         
         attn_raw = compatibility.permute(1,2,3,0)
         attn = self.score_aggr(attn_raw).permute(3,0,1,2)
