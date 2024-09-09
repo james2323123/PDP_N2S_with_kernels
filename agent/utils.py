@@ -10,6 +10,9 @@ from torch.utils.data import DataLoader
 from tensorboard_logger import Logger as TbLogger
 import random
 
+import numpy as np
+import pandas as pd
+
 def gather_tensor_and_concat(tensor):
     gather_t = [torch.ones_like(tensor) for _ in range(dist.get_world_size())]
     dist.all_gather(gather_t, tensor)
@@ -95,6 +98,11 @@ def validate(rank, problem, agent, val_dataset, tb_logger, distributed = False, 
         reward = r
         
     if distributed and opts.distributed: dist.barrier()
+
+    # log best values to file for t testing
+    bv_np = bv.numpy()
+    df = pd.DataFrame(bv_np)
+    df.to_csv(f"{opts.problem}_{opts.graph_size}_kernel_t{opts.T_max}m{opts.val_m}")
         
     # log to screen  
     if rank == 0: log_to_screen(time_used, 
