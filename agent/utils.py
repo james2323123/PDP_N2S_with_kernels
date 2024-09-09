@@ -101,8 +101,8 @@ def validate(rank, problem, agent, val_dataset, tb_logger, distributed = False, 
 
     # log best values to file for t testing
     bv_np = bv.cpu().numpy()
-    df = pd.DataFrame(bv_np, index=False)
-    df.to_csv(f"{opts.problem}_{opts.graph_size}_kernel_t{opts.T_max}m{opts.val_m}")
+    df = pd.DataFrame(bv_np)
+    df.to_csv(f"{opts.problem}_{opts.graph_size}_kernel_t{opts.T_max}m{opts.val_m}", index=False)
         
     # log to screen  
     if rank == 0: log_to_screen(time_used, 
