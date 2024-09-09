@@ -63,7 +63,7 @@ class PPO:
                     n_layers = opts.n_encode_layers,
                     normalization = opts.normalization,
                     kernel = opts.kernel,
-                    kernel_enabled = opts.opts.kernel_critic
+                    kernel_enabled = opts.kernel_critic
                 )
         
             # figure out the optimizer

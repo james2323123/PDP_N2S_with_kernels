@@ -1,0 +1,15 @@
+python run.py \
+--eval_only \
+--problem pdtsp \
+--graph_size 20 \
+--T_max 1000 \
+--val_m 1 \
+--val_size 2000 \
+--val_batch_size 2000 \
+--load_path './pre-trained/kernel/pdtsp_20/epoch-127.pt' \
+--val_dataset  './datasets/pdp_20.pkl' \
+--kernel cauchy \
+--hidden_dim 32 \
+--embedding_dim 32 \
+--no_tb \
+--no_saving \
