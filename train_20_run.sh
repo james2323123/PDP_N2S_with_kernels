@@ -1,0 +1,11 @@
+python run.py \
+--problem pdtsp \
+--graph_size 20 \
+--warm_up 1.5 \
+--max_grad_norm 0.15 \
+--val_m 1 \
+--val_dataset './datasets/pdp_20.pkl' \
+--run_name 'PDTSP20_cauchy_64' \
+--kernel cauchy \
+--hidden_dim 32 \
+--embedding_dim 32 \

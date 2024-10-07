@@ -1,13 +1,13 @@
 python run.py \
 --eval_only \
 --problem pdtsp \
---graph_size 100 \
+--graph_size 50 \
 --T_max 3000 \
---val_m 50 \
+--val_m 25 \
 --val_size 2000 \
---val_batch_size 80 \
---load_path './pre-trained/kernel/pdtsp_100/epoch-189.pt' \
---val_dataset  './datasets/pdp_100.pkl' \
+--val_batch_size 500 \
+--load_path './pre-trained/kernel/pdtsp_50_cauchy.pt' \
+--val_dataset  './datasets/pdp_50.pkl' \
 --kernel cauchy \
 --hidden_dim 64 \
 --embedding_dim 64 \

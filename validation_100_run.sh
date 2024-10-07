@@ -6,7 +6,7 @@ python run.py \
 --val_m 50 \
 --val_size 2000 \
 --val_batch_size 80 \
---load_path './pre-trained/kernel/pdtsp_100/epoch-189.pt' \
+--load_path './pre-trained/kernel/pdtsp_100_cauchy.pt' \
 --val_dataset  './datasets/pdp_100.pkl' \
 --kernel cauchy \
 --hidden_dim 64 \
